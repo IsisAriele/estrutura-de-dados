@@ -54,4 +54,34 @@ public class PilhaArray implements Pilha {
         indiceDoTopo -= 1;
         return temp;
     }
+
+    // Métodos adicionais propostos pelo professor
+
+    // Esvazia pilha
+    public void empty() {
+        for (int i = 0; i <= indiceDoTopo; i++) {
+            lista[i] = null;
+        }
+        indiceDoTopo = -1; // Resetar o índice do topo para indicar que a pilha está vazia.
+    }
+
+    //
+    public void adicionaPilha(Pilha p) {
+        int tamanhoPilhaP = p.size();
+        Object[] elementosP = new Object[tamanhoPilhaP];
+
+        // Transferir os elementos da pilha p para o array elementosP
+        for (int i = 0; i < tamanhoPilhaP; i++) {
+            try {
+                elementosP[i] = p.pop();
+            } catch (PilhaVaziaExcecao e) {
+                e.printStackTrace();
+            }
+        }
+
+        // Transferir os elementos do array elementosP para a pilha atual
+        for (int i = tamanhoPilhaP - 1; i >= 0; i--) {
+            push(elementosP[i]);
+        }
+    }
 }
