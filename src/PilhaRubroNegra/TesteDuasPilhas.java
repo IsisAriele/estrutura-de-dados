@@ -1,6 +1,4 @@
-package DuasPilhas;
-
-import DuasPilhas.DuasPilhas;
+package PilhaRubroNegra;
 
 public class TesteDuasPilhas {
     public static void main(String[] args) {

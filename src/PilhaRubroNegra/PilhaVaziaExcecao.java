@@ -1,4 +1,4 @@
-package DuasPilhas;
+package PilhaRubroNegra;
 
 public class PilhaVaziaExcecao extends RuntimeException {
     public PilhaVaziaExcecao(String err){

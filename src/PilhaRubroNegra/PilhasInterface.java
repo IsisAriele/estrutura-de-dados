@@ -1,4 +1,4 @@
-package DuasPilhas;
+package PilhaRubroNegra;
 
 public interface PilhasInterface {
     void pushVermelho(Object elemento);

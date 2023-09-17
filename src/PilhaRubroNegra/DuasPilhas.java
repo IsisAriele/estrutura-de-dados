@@ -1,4 +1,4 @@
-package DuasPilhas;
+package PilhaRubroNegra;
 
 public class DuasPilhas implements PilhasInterface{
     private Object[] lista;
