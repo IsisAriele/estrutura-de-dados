@@ -1,4 +1,7 @@
 package Fila;
 
-public class FilaVaziaExcecao {
+public class FilaVaziaExcecao extends RuntimeException{
+    public FilaVaziaExcecao(String err){
+        super(err);
+    }
 }
