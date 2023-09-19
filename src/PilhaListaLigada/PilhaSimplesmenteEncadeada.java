@@ -1,7 +1,5 @@
 package PilhaListaLigada;
 
-import FilaListaLigada.FilaVaziaExcecao;
-
 public class PilhaSimplesmenteEncadeada {
     private No inicio;   // Referência para o primeiro nó da fila
     private int tamanho; // Tamanho da fila
@@ -32,7 +30,7 @@ public class PilhaSimplesmenteEncadeada {
         No temp;
 
         if (isEmpty()) {
-            throw new FilaVaziaExcecao("A fila está vazia");
+            throw new PilhaVaziaExcecao("A fila está vazia");
         } else {
             No atual = inicio;
             while (atual.proximo != null) {
@@ -50,7 +48,7 @@ public class PilhaSimplesmenteEncadeada {
         No temp;
 
         if (isEmpty()) {
-            throw new FilaVaziaExcecao("A fila está vazia");
+            throw new PilhaVaziaExcecao("A fila está vazia");
         } else {
             No atual = inicio;
             while (atual.proximo != null) {
