@@ -2,6 +2,7 @@ package FilaListaLigada;
 
 public class FilaSimplesmenteEncadeada {
     private No inicio; // Referência para o primeiro nó da fila
+    private No fim;
     private int tamanho; // Tamanho da fila
 
     //Construtor com inicializações da fila
@@ -15,12 +16,10 @@ public class FilaSimplesmenteEncadeada {
         No novoNo = new No(elemento); // Instância do novo nó
         if (inicio == null) {
             inicio = novoNo; // Se a fila estiver vazia, o novo nó se torna o início
+            fim = novoNo; // Armazeno esse primeiro no em fim para ser acessado na remoção.
         } else {
-            No atual = inicio;
-            while (atual.proximo != null) {
-                atual = atual.proximo; // Encontra o último nó da fila
-            }
-            atual.proximo = novoNo; // Define o próximo do último nó (o null) como o novo nó
+            fim.proximo = novoNo;
+            fim = novoNo;
         }
         tamanho++;
     }

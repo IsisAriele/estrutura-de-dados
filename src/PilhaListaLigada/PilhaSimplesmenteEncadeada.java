@@ -10,34 +10,28 @@ public class PilhaSimplesmenteEncadeada {
         this.tamanho = 0;
     }
 
-    // push insere um elemento no fim da pilha
+    // push insere um elemento no inicio da pilha
     public void push(Object elemento) {
         No novoNo = new No(elemento); // Instancia novo nó
         if (inicio == null) {
             inicio = novoNo; // Condição pilha vazia
         } else {
-            No atual = inicio;
-            while (atual.proximo != null) {
-                atual = atual.proximo; // Encontra o último nó da fila
-            }
-            atual.proximo = novoNo; // Define o próximo do último nó (null) como o novo nó
+            No temp = inicio;
+            inicio = novoNo;
+            inicio.proximo = temp;
         }
         tamanho++;
     }
 
-    // pop remove e retorna o ultimo elemento da pilha
+    // pop remove e retorna o ultimo elemento da pilha, ou seja, no inicio
     public Object pop() {
         No temp;
 
         if (isEmpty()) {
-            throw new PilhaVaziaExcecao("A fila está vazia");
+            throw new PilhaVaziaExcecao("A pilha está vazia");
         } else {
-            No atual = inicio;
-            while (atual.proximo != null) {
-                atual = atual.proximo; // Vai até o ultimo nó
-            }
-            temp = atual;
-            atual = null; // Remove o último nó
+            temp = inicio;
+            inicio = inicio.proximo;
         }
         tamanho--;
         return temp;
@@ -50,11 +44,7 @@ public class PilhaSimplesmenteEncadeada {
         if (isEmpty()) {
             throw new PilhaVaziaExcecao("A fila está vazia");
         } else {
-            No atual = inicio;
-            while (atual.proximo != null) {
-                atual = atual.proximo; // Vai até o ultimo nó
-            }
-            temp = atual;
+            temp = inicio;
         }
         return temp;
     }
