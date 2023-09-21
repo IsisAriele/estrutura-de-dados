@@ -40,10 +40,16 @@ public class FilaComDuasPilhas implements FilaComDuasPilhasInterface {
         } else if (pilhaSaidaIsEmpty()){
             transferirPilhaEntradaParaPilhaSaida();
         }
-        indiceTopo++;
+        indiceTopo++; // estava -1 agr é zero
         Object temp = pilhaSaida[indiceFinal];
         pilhaSaida[indiceFinal] = null;
         indiceFinal--;
+        while(indiceFinal >=0){
+            pilhaEntrada[indiceTopo] = pilhaSaida[indiceFinal];
+            indiceTopo++;
+            indiceFinal--;
+        }
+        indiceTopo--;
         return temp;
     }
 
@@ -86,10 +92,9 @@ public class FilaComDuasPilhas implements FilaComDuasPilhasInterface {
         if (isEmpty()) {
             throw new Fila.FilaVaziaExcecao("A fila está vazia");
         }
-
         // Use a pilha de saída para listar os elementos na ordem correta
-        for (int i = indiceFinal; i >= 0; i--) {
-            System.out.print(pilhaSaida[i] + " ");
+        for (int i = 0; i <= indiceTopo; i++) {
+            System.out.print(pilhaEntrada[i] + " ");
         }
 
         System.out.println("rapaz");
