@@ -35,8 +35,7 @@ public class FilaComDuasPilhas implements FilaComDuasPilhasInterface {
             novaLista[i] = pilhaEntrada[i];
         }
         pilhaEntrada = novaLista;
-        //Aumentar também a capacidade da pilha saída
-        // Não precisa copiar nada, pois a pilha saida sempre fica vazia após o dequeue
+        //Aumentando também a capacidade da pilha saída
         Object[] novaListaSaida = new Object[capacidade];
         pilhaSaida = novaListaSaida;
     }
