@@ -1,7 +1,5 @@
 package FilaComDuasPilhas;
 
-import Pilha.PilhaVaziaExcecao;
-
 public class FilaComDuasPilhas implements FilaComDuasPilhasInterface {
     private int indiceFinal = -1;
     private int indiceTopo = -1;
