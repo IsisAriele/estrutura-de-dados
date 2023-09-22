@@ -5,7 +5,7 @@ public interface FilaComDuasPilhasInterface {
 
     public Object dequeue();
 
-    public boolean pilhaSaidaIsEmpty();
+    //public boolean pilhaSaidaIsEmpty();
 
     public void transferirPilhaEntradaParaPilhaSaida();
 
