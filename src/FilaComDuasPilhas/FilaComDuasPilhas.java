@@ -20,7 +20,7 @@ public class FilaComDuasPilhas implements FilaComDuasPilhasInterface {
         if (indiceTopo == capacidade -1){ //pilha vazia
            aumentaCapacidade();
         }
-        //Realizando push na pilhaEntrada
+        // PUSH
         indiceTopo += 1;
         pilhaEntrada[indiceTopo] = elemento;
         System.out.println(elemento);
@@ -46,7 +46,7 @@ public class FilaComDuasPilhas implements FilaComDuasPilhasInterface {
         }
         // Invertendo a pilha
         transferirPilhaEntradaParaPilhaSaida();
-        // Removendo
+        // POP
         Object temp = pilhaSaida[indiceFinal];
         pilhaSaida[indiceFinal] = null;
         indiceFinal--;
