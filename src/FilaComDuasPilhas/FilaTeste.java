@@ -3,7 +3,7 @@ package FilaComDuasPilhas;
 
 public class FilaTeste {
     public static void main(String[] args) {
-        FilaComDuasPilhas pp = new FilaComDuasPilhas(11);
+        FilaComDuasPilhas pp = new FilaComDuasPilhas(1);
         System.out.println("Inserindo");
         for (int f = 0; f < 10; f++) {
             pp.enqueue(f);

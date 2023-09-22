@@ -70,6 +70,7 @@ public class FilaComDuasPilhas implements FilaComDuasPilhasInterface {
         indiceTopo++;
     }
 
+    @Override
     public void transferirPilhaSaidaParaPilhaEntrada(){
         while(indiceFinal >=0){
             pilhaEntrada[indiceTopo] = pilhaSaida[indiceFinal];
