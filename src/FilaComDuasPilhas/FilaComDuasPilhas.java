@@ -4,8 +4,8 @@ public class FilaComDuasPilhas implements FilaComDuasPilhasInterface {
     private int indiceFinal = -1;
     private int indiceTopo = -1;
     private int capacidade;
-    private Object[] pilhaEntrada;
-    private Object[] pilhaSaida;
+    private Object[] pilhaEntrada; // Pilha principal usada para incremento e acesso
+    private Object[] pilhaSaida; // Pilha auxiliar usada na remoção
 
     public FilaComDuasPilhas(int capacidade) {
         this.capacidade = capacidade;
