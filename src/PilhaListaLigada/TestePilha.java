@@ -1,6 +1,5 @@
 package PilhaListaLigada;
 
-
 public class TestePilha {
     public static void main(String[] args) {
         PilhaSimplesmenteEncadeada pilha = new PilhaSimplesmenteEncadeada();

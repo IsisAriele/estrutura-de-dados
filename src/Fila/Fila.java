@@ -60,6 +60,7 @@ public class Fila implements FilaInterface {
 
     @Override
     public int size() {
+
         return (capacidade - inicio + fim) % capacidade;
     }
 

@@ -18,6 +18,5 @@ public class TesteFilaSimplesmenteEncadeada {
         fila.imprimirFila();
         System.out.println("O primeiro elemento da fila é:" + fila.first());
         System.out.println("O tamanho da fila é: " + fila.size());
-
     }
 }

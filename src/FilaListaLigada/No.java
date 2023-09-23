@@ -1,5 +1,4 @@
 package FilaListaLigada;
-
 public class No {
     Object elemento;
     No proximo;

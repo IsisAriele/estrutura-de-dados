@@ -1,6 +1,5 @@
 package FilaComDuasPilhas;
 
-
 public class FilaTeste {
     public static void main(String[] args) {
         FilaComDuasPilhas pp = new FilaComDuasPilhas(1);
@@ -10,7 +9,6 @@ public class FilaTeste {
         }
         pp.listar();
 
-
         System.out.println("retirando");
         for (int f = 0; f < 3; f++) {
             System.out.println(pp.dequeue());
@@ -20,7 +18,6 @@ public class FilaTeste {
             System.out.println(pp.dequeue());
         }
         pp.listar();
-
 
         System.out.println("Inserindo");
         for (int f = 0; f < 3; f++) {

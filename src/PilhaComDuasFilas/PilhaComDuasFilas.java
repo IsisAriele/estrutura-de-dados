@@ -15,7 +15,7 @@ public class PilhaComDuasFilas implements PilhaComDuasFilasInterface {
 
     @Override
     public void push(Object elemento) {
-        if (size() == (capacidade - 1)) { // Verifica se a pilha está cheia
+        if (size() == (capacidade - 1)) { // Verifica se a fila está cheia
             aumentaCapacidade();
         }
         filaEntrada[fim] = elemento;
@@ -47,9 +47,12 @@ public class PilhaComDuasFilas implements PilhaComDuasFilasInterface {
         if (isEmpty()) {
             throw new PilhaVaziaExcecao("A pilha está vazia");
         }
+        // Invertendo a fila
         transferirFilaEntradaParaFilaSaida();
-        Object temp = filaSaida[inicio];
-        inicio = (inicio + 1) % capacidade;
+        // Dequeue
+        Object temp = filaSaida[fim + 1];
+        fim = (fim + 1) % capacidade;
+        //Desinvertendo a fila
         transferirFilaSaidaParaFilaEntrada();
         return temp;
     }
@@ -60,15 +63,14 @@ public class PilhaComDuasFilas implements PilhaComDuasFilasInterface {
             filaSaida[fim] = filaEntrada[inicio];
             inicio++;
             fim--;
-
         }
-        inicio--; //n//corrigindo indices
-        fim++; //0
+        inicio--;
+        fim++;
     }
 
     @Override
     public void transferirFilaSaidaParaFilaEntrada() {
-        while (inicio >= 0) {
+        while (fim <= size()) {
             filaEntrada[inicio] = filaSaida[fim];
             inicio--;
             fim++;
@@ -82,29 +84,27 @@ public class PilhaComDuasFilas implements PilhaComDuasFilasInterface {
         if (isEmpty()) {
             throw new PilhaVaziaExcecao("A pilha está vazia");
         }
-        return filaEntrada[inicio];
+        return filaEntrada[fim - 1];
     }
 
     @Override
     public int size() {
+
         return (capacidade - inicio + fim) % capacidade;
     }
 
     @Override
     public boolean isEmpty() {
+
         return inicio == fim;
     }
-
 
     public void listar() {
         if (isEmpty()) {
             throw new PilhaVaziaExcecao("A pilha está vazia");
         }
-        // Use a fila de saída para listar os elementos na ordem correta
-        int i = inicio;
-        while (i != fim) {
+        for (int i = inicio; i != fim; i = (i + 1) % capacidade) {
             System.out.print(filaEntrada[i] + " ");
-            i = (i + 1) % capacidade;
         }
         System.out.println();
     }

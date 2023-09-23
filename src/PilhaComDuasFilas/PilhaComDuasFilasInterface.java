@@ -8,5 +8,4 @@ public interface PilhaComDuasFilasInterface {
     public Object top();
     public int size();
     public boolean isEmpty();
-
 }
