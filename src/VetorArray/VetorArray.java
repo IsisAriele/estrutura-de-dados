@@ -54,7 +54,7 @@ public class VetorArray {
             throw new VetorExcecao("O vetor está vazio");
         }
         if(r > size){
-            throw new VetorExcecao("Não é possível inserir um elemento numa posição que é maior que o número de elementos atual da lista");
+            throw new VetorExcecao("Não é possível remover um elemento numa posição que é maior que o número de elementos atual da lista");
         }
         Object aux = array[r];
         for (int i = r; i < size + 1; i++) {
