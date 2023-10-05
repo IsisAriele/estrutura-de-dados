@@ -86,15 +86,18 @@ public class ListaArray implements Lista{
         if(capacidade == size){
             aumentaCapacidade();
         }
-        if(n == 0 || n > size + 1){
+        if(n == 0|| n > size + 1){
             throw new ListaExcecao("Índice informado ultrapassa os limites da lista");
-        }else {
+        } else if (isEmpty()) {
+            System.out.println("Lista vazia, elemento inserido no início da lista");
+            lista[0] = o;
+        } else {
             for (int i = size; i > n - 1; i--) {
                 lista[i] = lista[i - 1];
             }
             lista[n - 1] = o;
-            size++;
         }
+        size++;
     }
 
     // insere o objeto o após o elemento na posição n.
