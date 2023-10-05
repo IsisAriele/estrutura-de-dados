@@ -16,6 +16,5 @@ public class TesteVetor {
         System.out.println();
         System.out.println(array.replaceAtRank(1, 9)); // 3
         array.print(); // 2 9
-
     }
 }

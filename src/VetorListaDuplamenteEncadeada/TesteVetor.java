@@ -20,7 +20,5 @@ public class TesteVetor {
 
         System.out.println(vetor.replaceAtRank(2, 99));
         vetor.print();
-
-
     }
 }
