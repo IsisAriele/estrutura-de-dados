@@ -1,10 +1,9 @@
 package ListaArray;
-
 public interface Lista {
     public int size();
     public boolean isEmpty();
-    public boolean isFirst(int n);
-    public boolean isLast(int n);
+    public boolean isFirst(Object o);
+    public boolean isLast(Object o);
     public Object first();
     public Object last();
     public Object before(int n);

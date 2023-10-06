@@ -3,16 +3,32 @@ package ListaDuplamenteEncadeada;
 public class TesteListaDL {
     public static void main(String[] args) {
         ListaDL lista = new ListaDL();
-        lista.insertBefore(0, 1);
-        lista.print();
-        lista.insertBefore(0, 2);
-        lista.insertBefore(0, 3);
-        lista.insertBefore(4, 4);
+        for (int i = 0; i <= 5; i++) {
+            lista.insertFirst(i);
+        }
         lista.print();
 
-        lista.insertAfter(1, 55);
+        No aux = lista.first();
+        for (int i = 0; i < 4; i++) { // Acessando o quarto nó
+            aux = lista.after(aux);
+        }
+
+        System.out.println(aux.elemento); // Verificando elemento do quarto nó
+        lista.insertBefore(aux, 10); // Inserindo antes do quarto nó um novo nó com valor 10
         lista.print();
-        lista.insertAfter(3, 66);
+
+        lista.insertFirst(100);
+        lista.insertLast(100);
         lista.print();
+
+        lista.remove(lista.first());
+        lista.remove(lista.last());
+        lista.print();
+
+        lista.swapElements(lista.first(), lista.last());
+        lista.print();
+
+        System.out.println(lista.isFirst(lista.last()));
+        System.out.println(lista.isLast(lista.first()));
     }
 }

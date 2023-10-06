@@ -10,62 +10,45 @@ public class ListaArray implements Lista{
         lista = new Object[capacidade];
     }
 
-    @Override
     public int size() {
         return size;
     }
 
-    @Override
     public boolean isEmpty() {
         return size == 0;
     }
 
-    // verifica se o elemento na posição n é o primeiro
-    @Override
-    public boolean isFirst(int n) {
-        if(lista[0] == lista[n]){
-            return true;
-        } else {
-            return false;
-        }
+    // verifica se o elemento passado é igual ao primeiro
+    public boolean isFirst(Object o) {
+        return lista[0] == o;
     }
 
-    // verifica se o elemento na posição n é o último.
-    @Override
-    public boolean isLast(int n) {
-        if(lista[size - 1] == lista[n]){
-            return true;
-        } else {
-            return false;
-        }
+    // verifica se o elemento passado é igual ao último
+    public boolean isLast(Object o) {
+        return lista[size - 1] == o;
     }
 
     // retorna o primeiro elemento
-    @Override
     public Object first() {
         return lista[0];
     }
 
     // retorna o último elemento
-    @Override
     public Object last() {
         return lista[size - 1];
     }
 
     // retorna o elemento antes do elemento na posição n.
-    @Override
     public Object before(int n) {
         return lista[n - 1];
     }
 
     // retorna o elemento depois do elemento na posição n
-    @Override
     public Object after(int n) {
         return lista[n + 1];
     }
 
     // substitui o elemento na posição n pelo objeto o
-    @Override
     public Object replaceElement(int n, Object o) {
         Object aux = lista[n];
         lista[n] = o;
@@ -73,7 +56,6 @@ public class ListaArray implements Lista{
     }
 
     // troca os elementos nas posições n e m.
-    @Override
     public void swapElements(int n, int m) {
         Object aux = lista[n];
         lista[n] = lista[m];
@@ -81,7 +63,6 @@ public class ListaArray implements Lista{
     }
 
     // insere o objeto o antes do elemento na posição n
-    @Override
     public void insertBefore(int n, Object o) {
         if(capacidade == size){
             aumentaCapacidade();
@@ -101,7 +82,6 @@ public class ListaArray implements Lista{
     }
 
     // insere o objeto o após o elemento na posição n.
-    @Override
     public void insertAfter(int n, Object o) {
         if(capacidade == size){
             aumentaCapacidade();
@@ -118,7 +98,6 @@ public class ListaArray implements Lista{
     }
 
     // insere o objeto o no início da lista.
-    @Override
     public void insertFirst(Object o) {
         if(capacidade == size){
             aumentaCapacidade();
@@ -136,17 +115,15 @@ public class ListaArray implements Lista{
     }
 
     //  insere o objeto o no final da lista.
-    @Override
     public void insertLast(Object o) {
         if(capacidade == size){
             aumentaCapacidade();
         }
-        lista[size] =o;
+        lista[size] = o;
         size++;
     }
 
     //  remove o elemento na posição n da lista.
-    @Override
     public void remove(int n) {
         for (int i = n; i < size; i++) {
             lista[i] = lista[i + 1];
