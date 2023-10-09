@@ -79,10 +79,10 @@ public class ListaDL implements Lista{
     // insere o nó o após o nó passado.
     public void insertAfter(No n, Object o) {
         No novoNo = new No(o);
-        n.prev.next = novoNo;
-        novoNo.prev = n.prev;
-        n.prev = novoNo;
-        novoNo.next = n;
+        n.next.prev = novoNo;
+        novoNo.next = n.next;
+        n.next = novoNo;
+        novoNo.prev = n;
         size++;
     }
 
@@ -120,7 +120,7 @@ public class ListaDL implements Lista{
         size++;
     }
 
-    //  remove o elemento na posição n da lista.
+    //  remove o nó passado
     public void remove(No n) {
         n.next.prev = n.prev;
         n.prev.next = n.next;
