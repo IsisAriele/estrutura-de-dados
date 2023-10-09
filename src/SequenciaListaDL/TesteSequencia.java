@@ -7,6 +7,8 @@ public class TesteSequencia {
         SequenciaLD sequencia = new SequenciaLD();
         System.out.println("### TESTANDO MÉTODOS DO VETOR: ###");
         sequencia.print();
+        System.out.println("Tamanho da sequencia");
+        System.out.println(sequencia.size());
 
         System.out.println("Inserindo em posição específica: ");
         sequencia.insertAtRank(0, 1);
@@ -52,9 +54,15 @@ public class TesteSequencia {
         sequencia.swapElements(sequencia.atRank(1), sequencia.last());
         sequencia.print();
 
-        System.out.println("Removendo um nó utilizando método ponte");
-        sequencia.remove(sequencia.atRank(2));
+        System.out.println("Removendo um nó");
+        sequencia.remove(sequencia.atRank(0));
         sequencia.print();
-        
+
+        System.out.println("Tamanho da sequencia");
+        System.out.println(sequencia.size());
+
+        System.out.println("Testando método rankOf");
+        System.out.println(sequencia.rankOf(sequencia.last()));
+
     }
 }
