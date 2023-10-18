@@ -25,28 +25,24 @@ public class PilhaSimplesmenteEncadeada {
 
     // pop remove e retorna o ultimo elemento da pilha, ou seja, no inicio
     public Object pop() {
-        No temp;
-
         if (isEmpty()) {
             throw new PilhaVaziaExcecao("A pilha está vazia");
         } else {
-            temp = inicio;
+            No temp = inicio;
             inicio = inicio.proximo;
+            tamanho--;
+            return temp;
         }
-        tamanho--;
-        return temp;
+
     }
 
     // Retorna o último elemento da pilha
     public Object top() {
-        No temp;
-
         if (isEmpty()) {
-            throw new PilhaVaziaExcecao("A fila está vazia");
+            throw new PilhaVaziaExcecao("A pilha está vazia");
         } else {
-            temp = inicio;
+            return inicio.elemento;
         }
-        return temp;
     }
 
     public boolean isEmpty() {
