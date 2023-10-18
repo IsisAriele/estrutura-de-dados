@@ -1,7 +1,5 @@
 package SequenciaListaDL;
 
-import ListaDuplamenteEncadeada.ListaDL;
-
 public class TesteSequencia {
     public static void main(String[] args) {
         SequenciaLD sequencia = new SequenciaLD();

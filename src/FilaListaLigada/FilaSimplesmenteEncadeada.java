@@ -45,7 +45,7 @@ public class FilaSimplesmenteEncadeada {
         if (isEmpty()) {
             throw new FilaVaziaExcecao("A fila está vazia");
         }
-        return inicio;
+        return inicio.elemento;
     }
 
     public int size() {

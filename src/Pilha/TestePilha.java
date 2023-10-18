@@ -19,11 +19,18 @@ public class TestePilha {
 
         System.out.println("Inserindo");
         long startTime = System.currentTimeMillis();
-        for(int f = 0; f < 10; f++){
+        for(int f = 0; f < 20; f++){
             pp.push(f);
         }
         long endTime = System.currentTimeMillis();
         long tempoExecucao = endTime - startTime;
         System.out.println("tempo " + tempoExecucao);
+
+        pp.listar();
+
+        pp.pop();
+        pp.listar();
+        pp.pop();
+        pp.listar();
     }
 }
