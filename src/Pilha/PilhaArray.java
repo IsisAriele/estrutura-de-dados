@@ -86,7 +86,7 @@ public class PilhaArray implements Pilha {
         }
 
         // Transferir os elementos do array elementosP para a pilha atual
-        for (int i = tamanhoDeP - 1; i >= 0; i--) {
+        for (int i = 0; i < tamanhoDeP; i++) {
             push(elementosDeP[i]);
         }
     }
