@@ -57,8 +57,9 @@ public class VetorArray {
             throw new VetorExcecao("Não é possível remover um elemento numa posição que é maior que o número de elementos atual da lista");
         }
         Object aux = array[r];
-        for (int i = r; i < size + 1; i++) {
+        for (int i = r; i <= size - r; i++) {
             array[i] = array[i + 1];
+            System.out.println("r" + i);
         }
 
         size--;
