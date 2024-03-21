@@ -2,29 +2,18 @@ package ArvorePesquisaBinaria;
 import java.util.Iterator;
 
 public class ArvoreBinariaPesquisa implements IArvoreBinariaPesquisa{
-    private int size;
-    private Comparador comparador;
-    private No raiz;
+    public int size;
+    public No raiz;
 
 
-    public ArvoreBinariaPesquisa(Comparador comparador){
+    public ArvoreBinariaPesquisa(){
         this.size = 0;
-        this.comparador = comparador;
         this.raiz = null;
-    }
-    @Override
-    public void setComparator(Comparador c) {
-        this.comparador = c;
-    }
-
-    @Override
-    public Comparador getComparador() {
-        return this.comparador;
     }
 
     @Override
     public No pesquisa(No no, Object key) {
-        System.out.println("Atual recursão - " + key + " Pai: " + no);
+        // System.out.println("Atual recursão - " + key + " Pai: " + no);
         // chegou num ponto que não desce mais
         if (no.isExternal())
             return no;
@@ -120,17 +109,18 @@ public class ArvoreBinariaPesquisa implements IArvoreBinariaPesquisa{
 //    }
 
     @Override
-    public Object remover(Object key) {
+    public No remover(Object key) {
         No no = pesquisa(raiz, key); // Encontra o nó a ser removido
         if (no != null) {
+            System.out.println("Removendo: " + no.getKey());
             removerNo(no);
             size--;
         }
-        return key;
+        return no;
     }
 
     //refazer o método acima com if else
-    private void removerNo(No no) {
+    public void removerNo(No no) {
         int quantidadeFilhos = quantidadeFilhos(no);
 
         if (quantidadeFilhos == 0) {
@@ -145,7 +135,7 @@ public class ArvoreBinariaPesquisa implements IArvoreBinariaPesquisa{
         }
     }
 
-    private int quantidadeFilhos(No no) {
+    public int quantidadeFilhos(No no) {
         int count = 0;
         if (no.hasLeftChild()) {
             count++;
@@ -156,7 +146,7 @@ public class ArvoreBinariaPesquisa implements IArvoreBinariaPesquisa{
         return count;
     }
 
-    private void removerFolha(No no) {
+    public void removerFolha(No no) {
         No pai = no.getParent();
         if (pai == null) {
             raiz = null; // O nó é a raiz
@@ -167,7 +157,7 @@ public class ArvoreBinariaPesquisa implements IArvoreBinariaPesquisa{
         }
     }
 
-    private void removerPaiDeUm(No no) {
+    public void removerPaiDeUm(No no) {
         No filho = (no.hasLeftChild()) ? no.getLeftChild() : no.getRightChild();
 
         No pai = no.getParent();
@@ -183,7 +173,7 @@ public class ArvoreBinariaPesquisa implements IArvoreBinariaPesquisa{
         filho.setParent(pai);
     }
 
-    private void removerPaiDeDois(No no) {
+    public void removerPaiDeDois(No no) {
 
         No sucessor = encontrarMenorNo(no.getRightChild());
         Object temp = sucessor.getKey();
@@ -191,7 +181,7 @@ public class ArvoreBinariaPesquisa implements IArvoreBinariaPesquisa{
         no.setKey(temp);
     }
 
-    private No encontrarMenorNo(No no) {
+    public No encontrarMenorNo(No no) {
         while (no.getLeftChild() != null) {
             no = no.getLeftChild();
         }
@@ -286,7 +276,7 @@ public class ArvoreBinariaPesquisa implements IArvoreBinariaPesquisa{
         }
     }
 
-    private void preencheTabela(No no, Object[][] tabela, int linha, int coluna) {
+    protected void preencheTabela(No no, Object[][] tabela, int linha, int coluna) {
         if (no == null)
             return;
 

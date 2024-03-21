@@ -1,6 +1,7 @@
 package ArvorePesquisaBinaria;
 
 public class No {
+    private int fb;
     private Object key;
     private No parent;
     private No leftChild;
@@ -8,8 +9,16 @@ public class No {
     public No(No pai, Object k) {
         parent = pai;
         key = k;
+        fb =  0;
     }
 
+    public int getFb(){
+        return fb;
+    }
+
+    public void setFb(int fb){
+        this.fb = fb;
+    }
     public Object getKey() {
         return key;
     }

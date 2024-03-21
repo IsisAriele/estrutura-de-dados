@@ -2,8 +2,8 @@ package ArvorePesquisaBinaria;
 import java.util.Iterator;
 
 public interface IArvoreBinariaPesquisa {
-    void setComparator(Comparador c);
-    Comparador getComparador();
+    // void setComparator(Comparador c);
+    // Comparador getComparador();
     No pesquisa(No no, Object key);
     No incluir(Object key);
     Object remover(Object key);

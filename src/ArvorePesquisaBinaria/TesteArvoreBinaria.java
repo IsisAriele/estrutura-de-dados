@@ -2,9 +2,9 @@ package ArvorePesquisaBinaria;
 
 public class TesteArvoreBinaria {
     public static void main(String[] args) {
-        Comparador comparador = new Comparador();
 
-        ArvoreBinariaPesquisa arvore = new ArvoreBinariaPesquisa(comparador);
+
+        ArvoreBinariaPesquisa arvore = new ArvoreBinariaPesquisa();
 
         No raiz = new No(null, 10);
         arvore.setRaiz(raiz);
