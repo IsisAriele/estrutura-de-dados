@@ -48,10 +48,21 @@ public class Grafo {
     }
 
     // Retorna se os vértices v e w são adjacentes.
+    // public boolean saoAdjacentes(Vertice v, Vertice w) {
+    //     return v.getverticesAdjacentes().stream()
+    //             .anyMatch(a -> finalVertices(a)[0].equals(w) || finalVertices(a)[1].equals(w));
+    // }
+
     public boolean saoAdjacentes(Vertice v, Vertice w) {
-        return v.getverticesAdjacentes().stream()
-                .anyMatch(a -> finalVertices(a)[0].equals(w) || finalVertices(a)[1].equals(w));
+        for (Aresta a : v.getverticesAdjacentes()) {
+            // Verifica se a origem ou o destino da aresta é o vértice w
+            if (a.getVerticeDestino().equals(w) || a.getVerticeOrigem().equals(w)) {
+                return true;
+            }
+        }
+        return false;
     }
+    
 
     public void substituirVertice(Vertice v, Object valor) {
         v.setValor(valor);
@@ -61,24 +72,50 @@ public class Grafo {
         e.setValor(valor);
     }
 
+
+    // Inserções ja passando os vertices
+
     public void inserirVertice(Vertice v) {
         this.listaVertices.add(v);
     }
 
-    public void inserirAresta(Vertice v, Vertice w, Object valor) {
-        Aresta a = new Aresta(v, w, valor, false);
+    public void inserirAresta(Vertice v, Vertice w, Object valor, boolean isDirecionada) {
+        Aresta a = new Aresta(v, w, valor, isDirecionada);
         v.inserirAresta(a);
-        w.inserirAresta(a);
+        // se não for direcionada, inserir a aresta no vértice destino. 
+        // Pois assim, será inserida como direcionada em ambos os vértices
+        if (!isDirecionada) {
+            w.inserirAresta(a);
+        }
     }
 
     public Object removerVertice(Vertice v) {
-        for (Aresta a : v.getverticesAdjacentes()) {
-            Vertice w = oposto(v, a);
-            w.getverticesAdjacentes().remove(a);
+        // pego o vertice oposto ao v
+        // procuro no vector listaVertices o vertice oposto
+        // ao achar percorro a lista de arestas do vertice oposto getverticesAdjacentes
+        // removo quando encontrar o meu vertice v
+        // removo o vertice v da lista de vertices
+
+         // Percorrer todos os vértices da lista para remover as arestas que conectam ao vértice v
+        for (Vertice vertice : listaVertices) {
+            // Para cada vértice da lista de vértices, percorre as arestas adjacentes
+            List<Aresta> arestasParaRemover = new ArrayList<>();
             
+            // Encontrar arestas que conectam ao vértice v e adicioná-las para remoção
+            for (Aresta a : vertice.getverticesAdjacentes()) {
+                if (a.getVerticeOrigem().equals(v) || a.getVerticeDestino().equals(v)) {
+                    arestasParaRemover.add(a);
+                }
+            }
+
+            // Remover todas as arestas que conectam o vértice v
+            vertice.getverticesAdjacentes().removeAll(arestasParaRemover);
         }
+
+        // Por fim, remover o vértice v da lista de vértices do grafo
         this.listaVertices.remove(v);
-        return v.getValor();
+
+        return v.getValor(); // Retorna o valor do vértice removido
     }
 
     public Object removerAresta(Aresta e) {
