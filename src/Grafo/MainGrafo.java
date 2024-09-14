@@ -34,6 +34,15 @@ public class MainGrafo {
         grafo.removerVertice(w);
         grafo.mostrarGrafo();
 
+        System.out.println("\n Fazendo a remoção direta de aresta");
+        // Cria a aresta que liga os vértices v e y
+        // Aresta aresta = new Aresta(v, y, 5, true);
+
+        // Remove a aresta criada
+        grafo.removerAresta(v, y);
+
+        // Mostra o grafo após a remoção
+        grafo.mostrarGrafo();
 
     }
 }

@@ -118,10 +118,29 @@ public class Grafo {
         return v.getValor(); // Retorna o valor do vértice removido
     }
 
-    public Object removerAresta(Aresta e) {
-        e.getVerticeOrigem().getverticesAdjacentes().remove(e);
-        e.getVerticeDestino().getverticesAdjacentes().remove(e);
-        return e.getValor();
+    public Object removerAresta(Vertice origem, Vertice destino) {
+        // e.getVerticeOrigem().getverticesAdjacentes().remove(e);
+        // e.getVerticeDestino().getverticesAdjacentes().remove(e);
+        // return e.getValor();
+
+          // Procurar a aresta nos vértices de origem
+        Aresta arestaParaRemover = null;
+        
+        for (Aresta a : origem.getverticesAdjacentes()) {
+            if (a.getVerticeDestino().equals(destino)) {
+                arestaParaRemover = a;
+                break;
+            }
+        }
+
+        // Se encontrar a aresta, removê-la
+        if (arestaParaRemover != null) {
+            origem.getverticesAdjacentes().remove(arestaParaRemover);
+            destino.getverticesAdjacentes().remove(arestaParaRemover);
+            return arestaParaRemover.getValor();
+        }
+
+        return null; // Retorna null se a aresta não foi encontrada
     }
 
     public List<Aresta> arestasIncidentes(Vertice v) {
