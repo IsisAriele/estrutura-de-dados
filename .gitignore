@@ -76,3 +76,30 @@ bin/
 
 # Ignore a pasta do repositório
 /target/
+
+# Ignorar pasta de configuração do IntelliJ IDEA
+.idea/
+
+# Ignorar arquivos gerados automaticamente pela compilação
+out/
+
+# Ignorar arquivos de log
+*.log
+
+# Ignorar arquivos de sistema operacional
+.DS_Store
+Thumbs.db
+
+# Ignorar arquivos de compilação Java
+*.class
+
+# Ignorar pacotes gerados (.jar, .war, .ear)
+*.jar
+*.war
+*.ear
+
+# Ignorar arquivos temporários
+*.tmp
+*.bak
+*.swp
+*~
