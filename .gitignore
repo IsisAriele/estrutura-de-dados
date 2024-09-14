@@ -78,7 +78,7 @@ bin/
 /target/
 
 # Ignorar pasta de configuração do IntelliJ IDEA
-.idea/
+.idea
 
 # Ignorar arquivos gerados automaticamente pela compilação
 out/
