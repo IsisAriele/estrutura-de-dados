@@ -163,10 +163,10 @@ public class Grafo {
         return e.isDirecionada();
     }
 
-    public void inserirArestaDirecionada(Vertice v, Vertice w, Object valor) {
-        Aresta a = new Aresta(v, w, valor, true);
-        v.inserirAresta(a);
-    }
+    // public void inserirArestaDirecionada(Vertice v, Vertice w, Object valor) {
+    //     Aresta a = new Aresta(v, w, valor, true);
+    //     v.inserirAresta(a);
+    // }
 
     public void mostrarGrafo() {
         for (Vertice v : this.listaVertices) {
@@ -183,26 +183,28 @@ public class Grafo {
     }
 
 
-    // public boolean ehConexo() {
-    //     if (this.listaVertices.isEmpty()) return true;
+    public boolean ehConexo() {
+        if (this.listaVertices.isEmpty()) return true;
 
-    //     boolean[] visitados = new boolean[this.listaVertices.size()];
-    //     dfs(0, visitados);
+        boolean[] visitados = new boolean[this.listaVertices.size()];
+        dfs(0, visitados);
 
-    //     for (boolean visitado : visitados) {
-    //         if (!visitado) return false;
-    //     }
-    //     return true;
-    // }
-    // private void dfs(int i, boolean[] visitados) {
-    //     visitados[i] = true;
-    //     Vertice v = this.listaVertices.get(i);
-    //     for (Aresta a : v.getListaAdjacencia()) {
-    //         Vertice destino = a.getVerticeDestino();
-    //         int indexDestino = this.listaVertices.indexOf(destino);
-    //         if (!visitados[indexDestino]) {
-    //             dfs(indexDestino, visitados);
-    //         }
-    //     }
-    // }
+        for (boolean visitado : visitados) {
+            if (!visitado) return false;
+        }
+        return true;
+    }
+
+    
+    private void dfs(int i, boolean[] visitados) {
+        visitados[i] = true;
+        Vertice v = this.listaVertices.get(i);
+        for (Aresta a : v.getverticesAdjacentes()) {
+            Vertice destino = a.getVerticeDestino();
+            int indexDestino = this.listaVertices.indexOf(destino);
+            if (!visitados[indexDestino]) {
+                dfs(indexDestino, visitados);
+            }
+        }
+    }
 }

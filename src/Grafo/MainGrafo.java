@@ -44,5 +44,12 @@ public class MainGrafo {
         // Mostra o grafo após a remoção
         grafo.mostrarGrafo();
 
+        System.out.println("\n Mostrando lista de arestas");
+
+        grafo.arestas().forEach(aresta -> {
+            System.out.println(aresta.getVerticeOrigem().getValor() + " -> " + aresta.getVerticeDestino().getValor());
+        });
+
+        
     }
 }
