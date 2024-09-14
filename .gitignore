@@ -1,0 +1,78 @@
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+out/
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# NetBeans
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+# VSCode
+.vscode/
+
+# Arquivos de build do Gradle
+.gradle/
+build/
+**/build/
+
+# Arquivos de build do Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+
+# Arquivos de logs
+*.log
+
+# Arquivos de compilação
+*.class
+*.jar
+*.war
+*.ear
+
+# Arquivos do sistema operacional
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.tmp
+*~
+
+# Arquivos temporários ou desnecessários
+*.bak
+*.tmp
+*.old
+
+# Arquivos de cache
+*.class
+*.jar
+*.war
+*.ear
+
+# Arquivos de pacotes
+*.jar
+*.war
+*.ear
+
+# Arquivos gerados automaticamente por ferramentas de desenvolvimento
+gen/
+bin/
+
+# Ignore a pasta do repositório
+/target/
